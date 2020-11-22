@@ -16,7 +16,6 @@ export default function App() {
 
   useEffect(() => {
     api.get('repositories').then(resp => {
-      console.log(resp.data);
       setRepositories(resp.data);
     });
   }, []);
