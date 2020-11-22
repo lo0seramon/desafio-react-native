@@ -25,9 +25,15 @@ export default function App() {
     const resp = await api.post(`repositories/${id}/like`);
 
     const repo = resp.data;
-    console.log(repo);
+    const updatedRepository = repositories.map(repository => {
+      if(repository.id === id) {
+        return repo;
+      } else {
+        return repository;
+      }
+    });
 
-    setRepositories([...repositories[id], repo]);
+    setRepositories(updatedRepository);
   }
 
   return (
